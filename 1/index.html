@@ -259,7 +259,7 @@
                     <div class="relative flex items-center">
                         <div class="w-5/12 text-right pr-8">
                             <p class="font-classic text-xl text-gray-700">Iglesia</p>
-                            <p class="text-gray-500">4:00 PM</p>
+                            <p class="text-gray-500">5:00 PM</p>
                         </div>
                         <div class="w-2/12"></div>
                         <div class="w-5/12 flex justify-start pl-8">
@@ -519,7 +519,7 @@
         </div>
 
         <div class="mt-4 mb-4 px-6 flex justify-center" data-aos="zoom-in" data-aos-duration="1200">
-            <a href="#" target="_blank" class=" max-w-sm  bg-[#E84343] text-[#EDC872] font-classic text-4xl py-2 px-10 rounded-full shadow-xl transition-all duration-300 transform text-center">
+            <a href="#" id="btn-confirmar" class=" max-w-sm  bg-[#E84343] text-[#EDC872] font-classic text-4xl py-2 px-10 rounded-full shadow-xl transition-all duration-300 transform text-center">
                 Confirmar
             </a>
         </div>
@@ -582,7 +582,7 @@
             offset: 50,
         });
 
-        // Lógica del Contador
+        // MARK: CONTADOR
         const targetDate = new Date('2026-10-17T16:00:00').getTime();
 
         const countdownInterval = setInterval(() => {
@@ -608,7 +608,7 @@
             }
         }, 1000);
 
-        // MARK: LÓGICA DE LA GALERÍA DINÁMICA
+        // MARK: GALERÍA DINÁMICA
         const totalImages = 7;
         const imagesArray = Array.from({length: totalImages}, (_, i) => `${i + 1}.jpeg`); // Genera ['1.jpeg', '2.jpeg', ..., '7.jpeg']
 
@@ -651,6 +651,22 @@
 
         // Ejecutar cambio de imágenes cada 5,000 milisegundos (5 segundos)
         setInterval(updateGallery, 5000);
+
+        // MARK: BOTÓN DE CONFIRMACIÓN
+        document.getElementById('btn-confirmar').addEventListener('click', function(event) {
+            // Evita que el enlace "#" recargue o salte la página
+            event.preventDefault(); 
+            
+            // COLOCA TU NÚMERO AQUÍ: 
+            // Debe incluir el código de país (ej. 52 para México, 34 para España) pero sin el signo "+"
+            const numeroTelefono = '526645292686'; 
+            
+            // Crea la URL de WhatsApp (sin texto predeterminado)
+            const urlWhatsApp = `https://wa.me/${numeroTelefono}`;
+            
+            // Abre la conversación en una pestaña nueva
+            window.open(urlWhatsApp, '_blank');
+        });
     </script>
 </body>
 </html>
